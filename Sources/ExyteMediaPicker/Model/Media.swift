@@ -46,3 +46,9 @@ public extension Media {
         await source.getThumbnailData()
     }
 }
+
+public extension Media {
+    init(source: MediaModelProtocol) {
+        self.source = source
+    }
+}
