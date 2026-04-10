@@ -103,7 +103,7 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
         .onAppear {
             PermissionsService.shared.updatePhotoLibraryAuthorizationStatus()
 #if !targetEnvironment(simulator)
-            if mediaPickerParamsHolder.liveCameraCell != .none {
+            if mediaPickerParams.liveCameraStyle != .none {
                 PermissionsService.shared.requestCameraPermission()
             } else {
                 PermissionsService.shared.updateCameraAuthorizationStatus()
@@ -301,7 +301,7 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
                 CustomCameraView<CameraViewContent>(viewModel: viewModel, didTakePicture: didTakePicture, didPressCancel: didPressCancel, cameraViewBuilder: cameraViewBuilder)
                     .ignoresSafeArea()
             } else {
-                StandardConrolsCameraView(viewModel: viewModel, didTakePicture: didTakePicture, didPressCancel: didPressCancel, selectionParameters: selectionParameters)
+                StandardConrolsCameraView(viewModel: viewModel, didTakePicture: didTakePicture, didPressCancel: didPressCancel, selectionParameters: mediaPickerParams.selectionParameters)
                     .ignoresSafeArea()
             }
         }

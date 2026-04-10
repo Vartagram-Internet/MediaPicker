@@ -85,7 +85,7 @@ struct AlbumView: View {
         return if permissionsService.cameraPermissionStatus != .authorized {
             .none
         } else {
-            mediaPickerParamsHolder.liveCameraCell
+            mediaPickerParams.liveCameraStyle
         }
         #endif
     }
